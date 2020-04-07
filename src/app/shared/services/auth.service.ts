@@ -10,7 +10,8 @@ export class AuthService {
 
   authUrl = 'http://192.168.0.100:6002/';
   registr_Url = 'http://192.168.0.100:6002/';
-  confirmUrl = "test.com";
+  confirmUrl = "http://localhost:4200/confirm-email";
+  changePasswordUrl = "http://localhost:4200/chnage-password";
 
   constructor(private http: HttpClient) { }
 
@@ -31,5 +32,21 @@ export class AuthService {
     });
     let options = {headers : headers};
     return this.http.post(this.registr_Url+'register/', model, options);
+  }
+
+  resetPassword(model: any){
+    let headers = new HttpHeaders({
+        'confirnmationUrl' : this.confirmUrl
+    });
+    let options = {headers : headers};
+    return this.http.post(this.registr_Url+'restpassword/', model, options);
+  }
+
+  confirmEmail(model: any){
+    return this.http.post(this.authUrl+"confirmemail", model)
+  }
+
+  chagePassword(model: any){
+    return this.http.post(this.authUrl+"changepassword", model)
   }
 }

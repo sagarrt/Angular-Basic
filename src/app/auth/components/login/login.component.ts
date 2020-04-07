@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   onSubmit(f:NgForm){
     this.progressBar.startLoading();
     const loginObserver = {
