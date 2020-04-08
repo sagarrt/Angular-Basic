@@ -8,6 +8,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NgProgressModule } from 'ngx-progressbar';
 
+import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { AlertModule } from 'ngx-alerts';
+
+// import { BsDropdownModule } from 'ngx-bootstrap';
+
 @NgModule({
   declarations: [ColumnOneComponent, HeaderComponent],
   imports: [
@@ -15,6 +21,11 @@ import { NgProgressModule } from 'ngx-progressbar';
     RouterModule,
     NgProgressModule,
     HttpClientModule,
+
+    BrowserAnimationsModule,
+    BrowserModule,
+    AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'}),
+    // BsDropdownModule.forRoot()
   ],
   exports:[
     ColumnOneComponent,
